@@ -15,7 +15,6 @@ import org.springframework.security.web.authentication.AbstractAuthenticationPro
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -39,7 +38,7 @@ public class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFil
     }
 
     @Override
-    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
+    public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         try {
             Participant participant = new ObjectMapper().readValue(request.getInputStream(), Participant.class);
             Authentication authentication = new UsernamePasswordAuthenticationToken(participant.getLogin(),
@@ -50,6 +49,7 @@ public class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFil
         }
     }
 
+    @Override
     protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain,
                                             Authentication auth) throws IOException {
         String login = ((UserDetails) auth.getPrincipal()).getUsername();

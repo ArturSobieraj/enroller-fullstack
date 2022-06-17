@@ -1,4 +1,4 @@
-package com.company.enroller;
+package com.company.enroller.security;
 
 import com.company.enroller.security.JWTAuthenticationFilter;
 import com.company.enroller.security.JWTAuthorizationFilter;
@@ -53,6 +53,5 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
    @Override
    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
        auth.userDetailsService(participantProvider).passwordEncoder(passwordEncoder);
-
    }
 }

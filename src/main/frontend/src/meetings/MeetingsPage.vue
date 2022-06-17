@@ -2,7 +2,7 @@
   <div>
     <new-meeting-form @added="addNewMeeting($event)"></new-meeting-form>
 
-    <span v-if="meetings.length == 0">
+    <span v-if="meetings.length === 0">
                Brak zaplanowanych spotkań.
            </span>
     <h3 v-else>
