@@ -1,8 +1,5 @@
 package com.company.enroller.security;
 
-import com.company.enroller.security.JWTAuthenticationFilter;
-import com.company.enroller.security.JWTAuthorizationFilter;
-import com.company.enroller.security.ParticipantProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;

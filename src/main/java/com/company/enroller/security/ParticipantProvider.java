@@ -3,8 +3,6 @@ package com.company.enroller.security;
 import com.company.enroller.model.Participant;
 import com.company.enroller.persistence.ParticipantService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

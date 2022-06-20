@@ -15,12 +15,12 @@
       <td>
         <ul v-if="meeting.participants">
           <li v-for="participant in meeting.participants" :key="participant">
-            {{ participant }}
+            {{ participant.login }}
           </li>
         </ul>
       </td>
       <td style="text-align: right; min-width: 400px" v-if="meeting.participants">
-        <button v-if="meeting.participants.indexOf(username) < 0"
+        <button v-if="!checkIfUserIsAttended(meeting)"
                 class="button-outline"
                 @click="$emit('attend', meeting)">
           Zapisz się
@@ -37,6 +37,15 @@
 
 <script>
     export default {
-        props: ['meetings', 'username']
+        props: ['meetings', 'username'],
+      methods: {
+        checkIfUserIsAttended(meeting) {
+          let participants = [];
+          meeting.participants.forEach(participant => {
+            participants.push(participant.login);
+          })
+          return participants.includes(this.username);
+        }
+      }
     }
 </script>

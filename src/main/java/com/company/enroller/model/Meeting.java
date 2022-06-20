@@ -1,7 +1,5 @@
 package com.company.enroller.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
@@ -13,10 +11,10 @@ public class Meeting {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @Column
-    private String title;
+    private String name;
 
     @Column
     private String description;
@@ -24,7 +22,6 @@ public class Meeting {
     @Column
     private String date;
 
-    @JsonIgnore
     @ManyToMany(mappedBy = "meetings")
     Set<Participant> participants = new HashSet<>();
 
@@ -32,8 +29,8 @@ public class Meeting {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
     public String getDescription() {
@@ -49,7 +46,7 @@ public class Meeting {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.name = title;
     }
 
     public void setDescription(String description) {

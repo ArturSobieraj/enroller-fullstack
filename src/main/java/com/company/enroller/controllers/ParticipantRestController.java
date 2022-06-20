@@ -55,7 +55,7 @@ public class ParticipantRestController {
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> update(@PathVariable("id") String login,
                                     @RequestBody Participant updatedParticipant) {
-        if (participantService.findByLogin(login) != null) {
+        if (participantService.findByLogin(login) == null) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
         updatedParticipant.setLogin(login); // in case of login!=updatedParticipant.getLogin()
